@@ -6,20 +6,18 @@ if a datapoint goes over the threshold.
 
 ## How to run this project?
 
-This app is pre-configured. Simply run:
+This app is pre-configured. For development mode simply run:
 
-1. npm i
-2. npm start
+1. yarn
+2. yarn migrate
+3. yarn seed
+4. yarn develop
 
 ## Endpoints
 
 PUT localhost:4000/data (Add SensorData)
 GET localhost:4000/data (Get SensorData)
 PUT localhost:4000/alert (Set Threshold)
-
-## Known issues
-
-Enviroment variables with Knex not being used
 
 ## Test coverage
 

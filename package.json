@@ -1,20 +1,22 @@
 {
   "name": "iot-sensor-ingestion-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "app.ts",
+  "main": "build/app.js",
   "scripts": {
     "make-migrate": "npx knex --knexfile ./src/db/knexfile.ts migrate:make converge -x ts",
     "migrate": "npx knex migrate:latest --knexfile ./src/db/knexfile.ts",
     "make-seed": "npx knex seed:make dev --knexfile ./src/db/knexfile.ts",
-    "seed": "npm run down && npm run migrate && npx knex seed:run --knexfile ./src/db/knexfile.ts && npm start",
+    "seed": "npm run down && npm run migrate && npx knex seed:run --knexfile ./src/db/knexfile.ts",
     "down": "npx knex migrate:down --knexfile ./src/db/knexfile.ts",
     "test": "jest --detectOpenHandles",
     "test-coverage": "jest --coverage --detectOpenHandles",
-    "start": "ts-node-dev --respawn --transpile-only ./src/app.ts"
+    "develop": "ts-node-dev --respawn --transpile-only ./src/app.ts",
+    "build": "tsc",
+    "start": "node build/app.js"
   },
   "keywords": [],
-  "author": "Daniel Adams",
+  "author": "daniel_adams",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.4.6",
@@ -23,7 +25,8 @@
     "express": "^4.17.1",
     "knex": "^0.95.11",
     "pg": "^8.7.1",
-    "ts-node-dev": "^1.1.8",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.4.3",
     "yup": "^0.32.9"
   },
