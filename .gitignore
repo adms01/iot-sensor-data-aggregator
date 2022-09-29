@@ -4,5 +4,5 @@
 # /src/db/seeds
 # /coverage
 # /__tests__/integration
-/build
+build
 coverage
